@@ -19,7 +19,7 @@ public class PersonaInfo {
 	private int id;
 	
 	@NotBlank(message="Persona Name is required.")
-	@Pattern(regexp = "[A-Za-z]",message = "Name is not Valid,Only letters are allowed.")
+	@Pattern(regexp = "^[a-zA-Z]+$",message = "Name is not Valid,Only letters are allowed.")
 	private String name;
 	
 	@NotBlank(message="Last Name is required.")
