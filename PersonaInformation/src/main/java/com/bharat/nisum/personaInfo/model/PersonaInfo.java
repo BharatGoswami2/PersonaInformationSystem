@@ -8,6 +8,8 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.PrePersist;
 import javax.persistence.PreUpdate;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.Pattern;
 
 @Entity
 public class PersonaInfo {
@@ -15,11 +17,23 @@ public class PersonaInfo {
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	private int id;
+	
+	@NotBlank(message="Persona Name is required.")
+	@Pattern(regexp = "[A-Za-z]",message = "Name is not Valid,Only letters are allowed.")
 	private String name;
+	
+	@NotBlank(message="Last Name is required.")
 	private String lastName;
+	
+	@NotBlank(message="Address is required.")
 	private String address;
+	
+	@NotBlank(message="Phone Nuumber is required.")
 	private String phoneNumber;
+	
+	@NotBlank(message="Hair Color is required.")
 	private String hairColor;
+	
 	private Date created_on;
 	private Date updated_on;
 	
