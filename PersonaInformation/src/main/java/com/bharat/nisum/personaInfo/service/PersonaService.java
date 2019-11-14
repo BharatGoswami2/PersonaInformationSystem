@@ -34,9 +34,12 @@ public class PersonaService {
 			
 			return personaInfo;
 			 
-		}catch(Exception e)
+		}catch(PersonaException pe) {
+			throw new PersonaException(pe.getMessage());
+		}
+		catch(Exception e)
 		{
-			 throw new PersonaException("Persona Id ["+id+"] does not Exsist");
+			 throw new PersonaException("Persona Id ["+id+"] is not valid.");
 		}
 	}
 
@@ -50,10 +53,13 @@ public class PersonaService {
 				}
 				if(personaInfo==null)
 				{
-					throw new PersonaException("Can not delete with this Persona Phone Number ["+phoneNumber+"]. This Id does not exsist.");
+					 throw new PersonaException("Can not find with this Persona Phone Number ["+phoneNumber+"]. This Phone Number does not exsist.");
 				}
 			return personaInfo;
-		}catch(Exception e)
+		}catch(PersonaException pe) {
+			throw new PersonaException(pe.getMessage());
+		}
+		catch(Exception e)
 		{
 			 throw new PersonaException("Persona Id ["+phoneNumber+"] is not valid.");
 		}

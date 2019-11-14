@@ -11,6 +11,10 @@ import javax.persistence.PreUpdate;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Pattern;
 
+import com.bharat.nisum.personaInfo.annotations.HairColorList;
+import com.bharat.nisum.personaInfo.enums.HairColors;
+
+
 @Entity
 public class PersonaInfo {
 	
@@ -23,15 +27,20 @@ public class PersonaInfo {
 	private String name;
 	
 	@NotBlank(message="Last Name is required.")
+	@Pattern(regexp = "^[a-zA-Z]+$",message = "Last Name is not Valid,Only letters are allowed.")
 	private String lastName;
 	
 	@NotBlank(message="Address is required.")
+	@Pattern(regexp = "^[A-Za-z0-9 ]+$",message = "Address is not Valid,Only Apha numeric & space are allowed.")
 	private String address;
 	
 	@NotBlank(message="Phone Nuumber is required.")
+	@Pattern(regexp = "^[0-9]*$",message = "Phone Number is not Valid,Only numbers are allowed.")
 	private String phoneNumber;
 	
 	@NotBlank(message="Hair Color is required.")
+	@HairColorList(enumClass = HairColors.class)
+	
 	private String hairColor;
 	
 	private Date created_on;
