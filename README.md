@@ -1,5 +1,8 @@
 URL POST: http://localhost:8080/api/Persona
+
 URL GET	: http://localhost:8080/api/Persona/2
+
+URL Delete: http://localhost:8080/api/Persona/1
 
 Version 1
 "# PersonaInformationSystem" Created
@@ -12,10 +15,14 @@ Validations Applied Part 1
 
 Version - 4
 
-Searching functionality builded.
+Searching functionality added.
 
 Version -5
 
 Exception handling functionality added.
+
+Version -6
+
+Delete functionality added
 
 
