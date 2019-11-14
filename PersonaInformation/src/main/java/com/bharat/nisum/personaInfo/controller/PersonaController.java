@@ -20,7 +20,7 @@ import com.bharat.nisum.personaInfo.service.PersonaService;
 import com.bharat.nisum.personaInfo.service.ValidationService;
 
 @RestController
-@RequestMapping("/api/PersonaInfo")
+@RequestMapping("/api/Persona")
 public class PersonaController {
 	
 	@Autowired
@@ -38,10 +38,10 @@ public class PersonaController {
 		return new ResponseEntity<PersonaInfo>(persistObj,HttpStatus.CREATED);
 	}
 	
-	@GetMapping("/searchById/{id}")
+	@GetMapping("/{id}")
 	public ResponseEntity<?> findById(@PathVariable String id) 
 	{
-		PersonaInfo persistObj=this.personaInfoService.findById(Integer.parseInt(id));
+		PersonaInfo persistObj=this.personaInfoService.findById(id);
 		return new ResponseEntity<PersonaInfo>(persistObj,HttpStatus.OK);
 	}
 	
